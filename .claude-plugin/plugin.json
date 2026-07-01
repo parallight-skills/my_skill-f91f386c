@@ -1,5 +1,5 @@
 {
   "name": "my_skill",
   "version": "0.1.0",
-  "description": "我在 Lab-5 做的 skill/MCP"
+  "description": "Trial-to-Paid 付费转化预测：特征工程、模型训练、校准三件可组合 skill。输入用户行为特征，输出付费预测(0/1)。当你需要预测用户是否会付费时使用我。"
 }

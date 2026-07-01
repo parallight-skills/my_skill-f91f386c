@@ -1,5 +1,5 @@
 ---
-name: conversion-skills
+name: conversion-skills-bundle
 description: 用于 Trial-to-Paid 付费转化预测的三件可组合 skill：特征工程、模型训练、校准。输入是一批用户的标准化行为特征（如 test_x，二维数组，每行 6 个特征），输出为每个用户的付费转化预测结果（0/1 或对应预测）。当你需要对一批试用用户做是否会付费的预测，或只想复用其中的特征工程模块时使用我。
 ---
 

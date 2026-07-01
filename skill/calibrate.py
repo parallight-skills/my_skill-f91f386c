@@ -6,5 +6,9 @@
 
 
 def to_labels(train_probs, train_y, test_probs):
-    thr = 0.5  # 留给你:用 train_probs / train_y 调一个更好的阈值
-    return [1 if p >= thr else 0 for p in test_probs]
+    best_thr, best_acc = 0.5, -1.0
+    for thr in [i / 100 for i in range(101)]:
+        acc = sum((1 if p >= thr else 0) == int(y) for p, y in zip(train_probs, train_y)) / len(train_y)
+        if acc > best_acc:
+            best_acc, best_thr = acc, thr
+    return [1 if p >= best_thr else 0 for p in test_probs]

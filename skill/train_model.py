@@ -16,10 +16,12 @@ def train_predict(train_X, train_y, test_X):
     Xtr = np.hstack([np.ones((len(Xtr), 1)), Xtr])
     Xte = np.hstack([np.ones((len(Xte), 1)), Xte])
     w = np.zeros(Xtr.shape[1])
-    lr = 0.02
-    for _ in range(150):  # ⚠️ 欠拟合:迭代太少。改大 + 调 lr + 加 L2。
+    lr = 0.5
+    l2 = 0.01
+    for _ in range(3000):
         p = 1 / (1 + np.exp(-Xtr @ w))
-        w -= lr * (Xtr.T @ (p - y)) / len(y)
+        grad = (Xtr.T @ (p - y)) / len(y) + l2 * w
+        w -= lr * grad
     return {
         "train": [float(v) for v in 1 / (1 + np.exp(-Xtr @ w))],
         "test": [float(v) for v in 1 / (1 + np.exp(-Xte @ w))],
